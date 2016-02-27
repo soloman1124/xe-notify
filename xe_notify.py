@@ -12,6 +12,7 @@ TARGET_RATE = 84.0
 
 
 logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 
 def lambda_handler(event=None, context=None):
