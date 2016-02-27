@@ -1,0 +1,17 @@
+{
+  "name": "xe_notify",
+  "description": "Notify my target change rate",
+  "region": "us-west-2",
+  "handler": "xe_notify.lambda_handler",
+  "role": "arn:aws:iam::540049826614:role/lambda_ses_execution",
+  "ignore": [
+    ".git",
+    "/*.pyc",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".gitignore",
+    "pip"
+  ],
+  "timeout": 30,
+  "memory": 128
+}
