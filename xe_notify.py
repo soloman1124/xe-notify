@@ -8,7 +8,7 @@ import time
 XE_URL = 'http://themoneyconverter.com'
 CURRENCY_FROM = 'AUD'
 CURRENCY_TO = 'JPY'
-TARGET_RATE = 80.0
+TARGET_RATE = 84.0
 
 def lambda_handler(event=None, context=None):
     current_rate = __get_exchange_rate()
