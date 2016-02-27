@@ -1,23 +1,28 @@
 #!/usr/bin/env python
-
 import requests
 import re
 import boto3
 import time
+import logging
 
 XE_URL = 'http://themoneyconverter.com'
 CURRENCY_FROM = 'AUD'
 CURRENCY_TO = 'JPY'
 TARGET_RATE = 84.0
 
+
+logger = logging.getLogger()
+
+
 def lambda_handler(event=None, context=None):
     current_rate = __get_exchange_rate()
+
+    logging.info("current rate [%f] checked at [%s]" % \
+        (current_rate, time.strftime('%c')))
 
     if current_rate >= TARGET_RATE:
         __notify(current_rate, TARGET_RATE)
 
-    return dict(message=
-        "current rate [%f] checked at [%s]" %(current_rate, time.strftime('%c')))
 
 
 def __notify(current_rate, target_rate):
